@@ -3,48 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
-namespace prime_numbers
+namespace project2
 {
     internal class Program
     {
         static void Main(string[] args)
-        {
-            int n1, n2,temp,prime,j;
+        { 
+                int n1, n2;
 
-        Console.WriteLine ("please enter start and end value") ;
+                Console.Write("Enter first num: ");
+                n1 = int.Parse(Console.ReadLine());
 
-            n1 = int.Parse(Console.ReadLine());
-
+                Console.Write("Enter last: ");
                 n2 = int.Parse(Console.ReadLine());
-            if(n1>n2)
-            { temp = n1;
-                n1 = n2;
-                n2 = temp;
-                    }
-            
-            for (int i=n1;i<=n2;i++)
-                { if (i==0||i==1)
-                    continue;
-                prime = 0;
-                for(j=2;j<i;j++)
+
+                for (int i = n1; i <= n2; i++)
                 {
-                    if (i%j==0)
-                    {
-                        prime = 1;
-                        break;
-                     
-                    }
-                }
-                if (prime==0)
-                {
-                    Console.WriteLine(i);
-                 }
-                //esraa samir ibrahim
+
+                    int sum = 0;           
+
+                    for (int j = 1; j < i; j++)            
+                    {                           
+                        if (i % j == 0)               
+                            sum += j;
+                    }                           
+
+                    if (sum  == i)              
+                        Console.Write(sum + " ");           
                 }
 
-
-                }
+                Console.Write("\n");
+            }
+        
     }
 }
-  
